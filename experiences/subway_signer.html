@@ -27,7 +27,8 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
+            width: calc(100% - 24px);
+            max-width: 100vw;
             z-index: 400;
             display: flex;
             flex-wrap: wrap;
@@ -35,8 +36,23 @@
             align-items: center;
             gap: 12px;
             padding: 10px 12px;
+            margin: 0 0 0 0;
             background: rgba(0,0,0,0.75);
             box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+            overflow: hidden;
+        }
+        nav > div:last-child {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            min-width: 0;
+        }
+        nav a {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: inline-block;
+            max-width: 110px;
         }
         nav a {
             white-space: nowrap;
