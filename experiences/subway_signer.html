@@ -596,6 +596,14 @@ plane.material.transparent = false;
             });
 
             checkGameState();
+
+            // keep the obstacle stream going so there is no long empty phase
+            const activeWallCount = walls.filter(w => w.visible).length;
+            if (!isGameOver && activeWallCount === 0) {
+                setNewTarget();
+                spawnWall();
+            }
+
             renderer.render(scene, camera);
         }
 
