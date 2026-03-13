@@ -15,22 +15,90 @@
         }
         canvas {
             display: block;
-            margin: 50px;
+            margin: 0;
+            position: absolute;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 400;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 12px;
+            background: rgba(0,0,0,0.6);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
         }
         #info-container {
             position: absolute;
-            top: 50px;
-            right: 20px;
+            top: 70px;
+            right: 10px;
             text-align: center;
             z-index: 100;
             background-color: rgba(0, 0, 0, 0.5);
-            padding: 10px 20px;
-            border-radius: 15px;
+            padding: 8px 14px;
+            border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
         #score {
-            font-size: 2em;
+            font-size: 1.2em;
             font-weight: bold;
+        }
+        #target-container {
+            position: absolute;
+            top: 70px;
+            left: 10px;
+            transform: none;
+            background-color: rgba(0,0,0,0.6);
+            padding: 8px;
+            border-radius: 10px;
+            text-align: center;
+            width: min(42vw, 260px);
+            height: min(42vw, 260px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            z-index: 90;
+        }
+        #target-label {
+            font-size: 1em;
+            color: #ccc;
+            margin-bottom: 5px;
+        }
+        #target-image {
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            border-radius: 5px;
+            object-fit: contain;
+        }
+
+        @media (max-width: 900px) {
+            #target-container {
+                top: auto;
+                bottom: 12px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: min(70vw, 220px);
+                height: min(70vw, 220px);
+            }
+            #info-container {
+                top: auto;
+                bottom: 12px;
+                right: 12px;
+                background-color: rgba(0,0,0,0.7);
+            }
+            #score { font-size: 1em; }
+            #restart-button { font-size: 1rem; padding: 10px 18px; }
+            #game-over { font-size: 2em; }
         }
         #target-container {
             position: absolute;
@@ -419,15 +487,32 @@ plane.material.transparent = false;
             score = 0;
             scoreElement.textContent = `Score: 0`;
             currentLane = 1;
-            player.position.x = lanes[currentLane];
+            player.position.set(lanes[currentLane], 0, 0);
+            player.rotation.set(0, 0, 0);
             gameOverContainer.style.display = 'none';
-            walls.forEach(w => { w.visible = false; });
+
+            // Reset world and walls
             ground.position.z = 0;
             ground2.position.z = -200;
+            walls.forEach(w => {
+                w.visible = false;
+                w.isPassed = false;
+                w.position.z = -120;
+                w.children.forEach(plane => {
+                    if (plane.material) {
+                        plane.material.transparent = false;
+                        plane.material.opacity = 1;
+                    }
+                });
+            });
+
+            // Reinitialize timing to avoid delta spikes
+            clock = new THREE.Clock();
+
             setNewTarget();
             spawnWall();
-            animate();
             targetVideoElement.playbackRate = 1;
+            animate();
         }
 
         // --- EVENT HANDLERS ---
