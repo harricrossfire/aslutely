@@ -579,12 +579,16 @@ plane.material.transparent = false;
             // Use speedFactor for horizontal movement too
             player.position.x += (targetX - player.position.x) * (0.1 * speedFactor);
 
-            // 3. Apply the factor to the world movement
-            ground.position.z += gameSpeed * speedFactor;
-            ground2.position.z += gameSpeed * speedFactor;
-            
-            if (ground.position.z > 200) ground.position.z = -200;
-            if (ground2.position.z > 200) ground2.position.z = -200;
+            // 3. Apply the factor to the world movement (robust looping ground)
+            const groundLoopSegment = 200;
+            const cameraZ = camera.position.z;
+
+            [ground, ground2].forEach(g => {
+                g.position.z += gameSpeed * speedFactor;
+                if (g.position.z - cameraZ > groundLoopSegment) {
+                    g.position.z -= groundLoopSegment * 2;
+                }
+            });
             
             walls.forEach(wall => {
                 if (wall.visible) {
