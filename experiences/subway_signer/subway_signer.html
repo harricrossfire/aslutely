@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endless Runner 3D</title>
+    <link rel="stylesheet" href="../../global.css">
+    <link rel="stylesheet" href="subway_signer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+        <nav>
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <div style="background: var(--accent); width: 10px; height: 10px; border-radius: 2px;"></div>
+            <span style="font-weight: 900; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;">ASLUTELY</span>
+        </div>
+        <div style="display: flex; gap: 20px;">
+            <a href="../index.html" class="label" style="text-decoration: none; color:white;">Practice</a>
+            <a href="../lexicon.html" class="label" style="text-decoration: none;">Vocabulary</a>
+        </div>
+    </nav>
+    <div id="loading-container">
+        <div id="loading-bar">
+            <div id="loading-progress"></div>
+        </div>
+    </div>
+
+    <div id="target-container">
+        <div id="target-label">TARGET</div>
+        <video id="target-image" autoplay loop muted playsinline></video>
+    </div>
+    <div id="info-container">
+        <div id="score">Score: 0</div>
+    </div>
+    <div id="game-over-container">
+        <div id="game-over">GAME OVER</div>
+        <button id="restart-button">Restart</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="subway_signer.js"></script>
+
+ 
+    </script>
+</body>
+</html>
