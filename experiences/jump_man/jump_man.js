@@ -33,14 +33,21 @@
         let quizTopics = {};
 
         async function loadQuizTopics() {
-            try {
-                const res = await fetch('/vocabulary_topics.json');
-                if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
-                const data = await res.json();
-                if (data && typeof data === 'object') quizTopics = data;
-            } catch (e) {
-                console.warn('Could not load quiz topics JSON:', e);
+            const candidates = ['vocabulary_topics.json', '../../vocabulary_topics.json'];
+            for (const candidate of candidates) {
+                try {
+                    const res = await fetch(candidate);
+                    if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
+                    const data = await res.json();
+                    if (data && typeof data === 'object') {
+                        quizTopics = data;
+                        return;
+                    }
+                } catch (e) {
+                    console.warn(`Could not load quiz topics JSON from ${candidate}:`, e);
+                }
             }
+            console.error('Failed to load quiz topics JSON from any known path.');
         }
 
         // --- Level Design ---
@@ -214,7 +221,14 @@
         function showTopicModal() {
             messageBox.classList.add('hidden'); // Hide any existing messages
             topicButtonsContainer.innerHTML = ''; // Clear old buttons
-            Object.keys(quizTopics).forEach(key => {
+
+            const topics = Object.keys(quizTopics);
+            if (topics.length === 0) {
+                showMessage('No quiz topics loaded. Check console for errors.');
+                return;
+            }
+
+            topics.forEach(key => {
                 const topic = quizTopics[key];
                 const button = document.createElement('button');
                 button.className = 'w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg text-sm md:text-base whitespace-normal';
