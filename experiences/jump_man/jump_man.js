@@ -297,6 +297,26 @@
                 }
             }
         });
+
+        function shouldIgnoreTap(target) {
+            return !!target.closest('#quiz-button') || !!target.closest('#topic-modal') || !!target.closest('#gif-modal');
+        }
+
+        function handleTapToJump(e) {
+            if (shouldIgnoreTap(e.target)) return;
+            if (onGround && !gamePaused && jumpsLeft > 0) {
+                jump();
+            }
+        }
+
+        window.addEventListener('pointerdown', (e) => {
+            if (e.pointerType === 'touch') handleTapToJump(e);
+        });
+
+        window.addEventListener('touchstart', (e) => {
+            handleTapToJump(e);
+        });
+
         quizButton.addEventListener('click', () => {
             if (!gamePaused) {
                 showGifModal();
