@@ -59,7 +59,27 @@
             canvas.height = 600;
             await loadQuizTopics();
             showTopicModal();
+            showMobileHint();
             gameLoop(); // Start the loop, but it will be paused
+        }
+
+        function showMobileHint() {
+            const hint = document.getElementById('mobile-hint');
+            if (!hint) return;
+
+            const isTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+            if (!isTouch) return;
+
+            hint.classList.remove('hidden');
+
+            const hideHint = () => {
+                hint.classList.add('hidden');
+                window.removeEventListener('touchstart', hideHint);
+                window.removeEventListener('pointerdown', hideHint);
+            };
+
+            window.addEventListener('touchstart', hideHint, { once: true });
+            window.addEventListener('pointerdown', hideHint, { once: true });
         }
 
         function startGame() {
