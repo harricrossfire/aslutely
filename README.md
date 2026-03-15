@@ -1,1 +1,2 @@
 # aslutely
+Aslutly is a website dedicated to helping others learn ASL through fun games and easily accessible interactive options. The site aims at combining signed videos created by Aslutely creator Harrison Longmore and AI assited code used to help create games on the site. It is the hope of the creator that these games, though simple, can be an enjoyable way to practice ASL in this busy world in which we all live!
