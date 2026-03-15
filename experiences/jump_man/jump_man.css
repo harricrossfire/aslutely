@@ -24,8 +24,8 @@
 
         @media (max-width: 480px) {
             #game-container {
-                width: 75%;
-                height: 75%; /* allow room for mobile UI chrome */
+                width: 90%;
+                height: 90%; /* allow room for mobile UI chrome */
             }
         }
         canvas {
