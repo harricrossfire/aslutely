@@ -28,13 +28,12 @@
                 height: 100%; /* allow room for mobile UI chrome */
             }
             #quiz-button {
-                font-size: 0.75rem;
-                padding: 0.5rem 1rem;
-                position: absolute;
+                position: fixed;
                 bottom: 10%;
                 left: 50%;
-                right: 50%;
-                top: 90%;
+                transform: translateX(-50%);
+                z-index: 30;
+                margin-top: 0;
             }
         }
         canvas {
