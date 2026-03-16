@@ -28,7 +28,8 @@
         let gamePaused = true; // Start paused
         let lastQuizTime = 0;
         let quizCooldown = 3000; // 3 seconds cooldown between quizzes
-
+        let lastTime = 0;
+        
         // --- Quiz Topics ---
         let quizTopics = {};
 
@@ -77,6 +78,7 @@
             canvas.height = 600;
             await loadLevels();
             await loadQuizTopics();
+            lastTime = performance.now();
             showTopicModal();
             showMobileHint();
             gameLoop(); // Start the loop, but it will be paused
