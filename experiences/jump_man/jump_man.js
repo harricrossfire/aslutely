@@ -51,12 +51,31 @@
         }
 
         // --- Level Design ---
-        const levels = [ /* ... Level data remains unchanged ... */ { startX:100,startY:450,platforms:[{x:50,y:500,width:150,height:20},{x:300,y:400,width:100,height:20},{x:500,y:300,width:100,height:20},{x:650,y:200,width:100,height:20,isGoal:true},]},{startX:100,startY:450,platforms:[{x:50,y:500,width:150,height:20},{x:250,y:450,width:50,height:20},{x:400,y:350,width:100,height:20},{x:250,y:250,width:50,height:20},{x:450,y:150,width:100,height:20},{x:650,y:100,width:100,height:20,isGoal:true},]},{startX:100,startY:550,platforms:[{x:50,y:580,width:150,height:20},{x:250,y:450,width:120,height:20,isMoving:true,moveSpeed:1.2,moveRange:150,startX:250},{x:600,y:350,width:100,height:20},{x:400,y:250,width:80,height:20},{x:150,y:150,width:100,height:20,isGoal:true},]} ];
+        let levels = [];
+
+        async function loadLevels() {
+            const candidates = ['levels.json', './levels.json'];
+            for (const candidate of candidates) {
+                try {
+                    const res = await fetch(candidate);
+                    if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
+                    const data = await res.json();
+                    if (Array.isArray(data)) {
+                        levels = data;
+                        return;
+                    }
+                } catch (e) {
+                    console.warn(`Could not load levels JSON from ${candidate}:`, e);
+                }
+            }
+            console.error('Failed to load levels JSON from any known path.');
+        }
 
         // --- Game Initialization ---
         async function init() {
             canvas.width = 800;
             canvas.height = 600;
+            await loadLevels();
             await loadQuizTopics();
             showTopicModal();
             showMobileHint();
