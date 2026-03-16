@@ -78,7 +78,7 @@ body {
 }
 
 /* Navigation */
-header {
+nav {
     border-bottom: 1px solid var(--border);
     position: fixed;
     top: 0;
@@ -103,4 +103,9 @@ header {
     background: rgba(0,0,0,0.75);
     box-shadow: 0 2px 8px rgba(0,0,0,0.4);
     overflow: hidden;
+    z-index: 1100;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border-bottom: 1px solid var(--border);
 }
