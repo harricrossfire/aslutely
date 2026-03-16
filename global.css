@@ -104,3 +104,23 @@ nav {
     background: rgba(0,0,0,0.75);
     box-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
+/* Fix for Mobile Devices */
+@media (max-width: 900px) {
+    nav {
+        /* Swap percentage for a fixed size so it doesn't vanish */
+        height: 60px !important; 
+        padding: 0 1rem !important;
+        
+        /* Force it to the top layer */
+        z-index: 9999 !important; 
+        
+        /* Re-enable touches that the game CSS disabled */
+        touch-action: auto !important; 
+        pointer-events: auto !important;
+    }
+
+    #info-container {
+        /* Move game UI down so it doesn't overlap the new nav height */
+        top: 70px !important; 
+    }
+}
