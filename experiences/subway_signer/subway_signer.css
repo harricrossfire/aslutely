@@ -3,8 +3,8 @@ canvas {
             margin: 0;
             position: absolute;
             inset: 0;
-            width: 100dvw;
-            height: 100dvh;
+            width: 90dvw;
+            height: 90dvh;
             z-index: 1;
         }
         #info-container {
