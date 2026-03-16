@@ -290,6 +290,131 @@
             }
         ]
     },
+    "fingerspelling_numbers": {
+        "title": "🤟 ASL Numbers (1-20)",
+        "questions": [
+            {
+                "question": "What number is being signed?",
+                "image": "https://media.gimkit.com/image/upload/v1756149846/ml5b0do6jfrbpba6qty0.gif",
+                "options": ["1", "2", "3", "4"],
+                "correct": 0
+            },
+            {
+                "question": "What number is being signed?",
+                "image": "https://media.gimkit.com/image/upload/v1756149870/bwa40zusilj7tjbpdiuc.gif",
+                "options": ["1", "2", "3", "4"],
+                "correct": 1
+            },
+            {
+                "question": "What number is being signed?",
+                "image": "https://media.gimkit.com/image/upload/v1756149904/ufvmeod4lk4lrgzeoyau.gif",
+                "options": ["2", "3", "4", "5"],
+                "correct": 1
+            },
+            {
+                "question": "What number is being signed?",
+                "image": "https://media.gimkit.com/image/upload/v1756149933/kpvdo2e7gxxw3hysizlk.gif",
+                "options": ["3", "4", "5", "6"],
+                "correct": 1
+            },
+            {
+                "question": "What number is being signed?",
+                "image": "https://media.gimkit.com/image/upload/v1756150032/ubjtwsfzzt8n0tdyzbps.gif",
+                "options": ["4", "5", "6", "7"],
+                "correct": 1
+            },
+            {
+                "question": "What number is being signed?",
+                "image": "https://media.gimkit.com/image/upload/v1756150065/gmbnrgyfeya5ilkx5ly2.gif",
+                "options": ["5", "6", "7", "8"],
+                "correct": 1
+            },
+            {
+                "question": "What number is being signed?",
+                "image": "https://media.gimkit.com/image/upload/v1756150091/stomgakq7h6gtwrtf5s7.gif",
+                "options": ["6", "7", "8", "9"],
+                "correct": 1
+            },
+            {
+                "question": "What number is being signed?",
+                "image": "https://media.gimkit.com/image/upload/v1756150116/qpqjzmlpxgajl29boilg.gif",
+                "options": ["7", "8", "9", "10"],
+                "correct": 1
+            },
+            {
+                "question": "What number is being signed?",
+                "image": "https://media.gimkit.com/image/upload/v1756150142/aeh7rl9imyhdagnggq9y.gif",
+                "options": ["8", "9", "10", "11"],
+                "correct": 1
+            },
+            {
+                "question": "What number is being signed?",
+                "image": "https://media.gimkit.com/image/upload/v1756150175/xxxrb1tjg0xpuxae4kuu.gif",
+                "options": ["9", "10", "11", "12"],
+                "correct": 1
+            },
+            {
+                "question": "What number is being signed?",
+                "image": "https://media.gimkit.com/image/upload/v1756150206/ilbmykowrul9bzio3m1p.gif",
+                "options": ["10", "11", "12", "13"],
+                "correct": 1
+            },
+            {
+                "question": "What number is being signed?",
+                "image": "https://media.gimkit.com/image/upload/v1756150231/tjvdoo637mrk06jv50xm.gif",
+                "options": ["11", "12", "13", "14"],
+                "correct": 1
+            },
+            {
+                "question": "What number is being signed?",
+                "image": "https://media.gimkit.com/image/upload/v1756150260/m9iufzw6dbcfptqw31r8.gif",
+                "options": ["12", "13", "14", "15"],
+                "correct": 1
+            },
+            {
+                "question": "What number is being signed?",
+                "image": "https://media.gimkit.com/image/upload/v1756150301/dor0zisus83yflyx0phc.gif",
+                "options": ["13", "14", "15", "16"],
+                "correct": 1
+            },
+            {
+                "question": "What number is being signed?",
+                "image": "https://media.gimkit.com/image/upload/v1756150323/pypkd1zdncgbhbouqoxt.gif",
+                "options": ["14", "15", "16", "17"],
+                "correct": 1
+            },
+            {
+                "question": "What number is being signed?",
+                "image": "https://media.gimkit.com/image/upload/v1756150351/tcgygvqctm5wnvew8qlv.gif",
+                "options": ["15", "16", "17", "18"],
+                "correct": 1
+            },
+            {
+                "question": "What number is being signed?",
+                "image": "https://media.gimkit.com/image/upload/v1756150378/nckxphzl8eseqsdk0mpu.gif",
+                "options": ["16", "17", "18", "19"],
+                "correct": 1
+            },
+            {
+                "question": "What number is being signed?",
+                "image": "https://media.gimkit.com/image/upload/v1756150425/wy8gbrfuzuzmzt4fsysa.gif",
+                "options": ["17", "18", "19", "20"],
+                "correct": 1
+            },
+            {
+                "question": "What number is being signed?",
+                "image": "https://media.gimkit.com/image/upload/v1756150500/pirynccjq5h99j6qonnr.gif",
+                "options": ["18", "19", "20", "21"],
+                "correct": 1
+            },
+            {
+                "question": "What number is being signed?",
+                "image": "https://media.gimkit.com/image/upload/v1756150530/bu5c2l55idhjtxyhhaqe.gif",
+                "options": ["19", "20", "21", "22"],
+                "correct": 1
+            }
+        ]
+    },
     "pronouns": {
         "title": "👨‍👩‍👧‍👦 Pronouns and Family",
         "questions": [
