@@ -79,6 +79,9 @@ body {
 /* Navigation */
 nav {
     border-bottom: 1px solid var(--border);
+    position: fixed;
+    top: 0;
+    width: 100%;
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
@@ -90,7 +93,6 @@ nav {
 /* Site Navigation */
 .site-nav {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     gap: 12px;
