@@ -1,3 +1,43 @@
+#game-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 35px; /* Offset for the 70px site nav */
+    width: min(1000px, calc(100vw - 20px));
+    height: min(600px, calc(100dvh - 100px));
+    background-color: #000;
+    border: 3px solid white;
+    border-radius: 12px;
+    overflow: hidden;
+    touch-action: none; /* PREVENTS TAPPING FROM MOVING WINDOW */
+    z-index: 10;
+}
+
+canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    touch-action: none;
+}
+
+/* Ensure all absolute UI elements stay inside the container */
+#info, #score-board, .ui-bar-container, .modal, #earn-fuel-btn {
+    position: absolute;
+}
+
+@media (max-width: 480px) {
+    #game-container {
+        width: 100vw;
+        height: calc(100dvh - 70px);
+        top: 70px;
+        left: 0;
+        transform: none;
+        margin-top: 0;
+        border: none;
+        border-radius: 0;
+    }
+}        
         canvas { 
             display: block;
         }

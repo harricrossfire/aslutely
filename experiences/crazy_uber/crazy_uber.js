@@ -50,17 +50,18 @@
             init();
         }
 
-        function init() {
-            scene = new THREE.Scene();
-            scene.background = new THREE.Color(0xadd8e6);
-            scene.fog = new THREE.Fog(0xadd8e6, 150, 400);
+function init() {
+    const container = document.getElementById('game-container');
+    const width = container.clientWidth;
+    const height = container.clientHeight;
 
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            
-            renderer = new THREE.WebGLRenderer({ antialias: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.shadowMap.enabled = true;
-            document.body.appendChild(renderer.domElement);
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+    
+    renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(width, height);
+    renderer.shadowMap.enabled = true;
+container.appendChild(renderer.domElement);
 
             fuelBarElement = document.getElementById('fuel-bar');
             healthBarElement = document.getElementById('health-bar');
@@ -99,7 +100,12 @@
             gameState = 'FINDING_PASSENGER';
             selectNewPassenger();
 
-            window.addEventListener('keydown', (e) => (keys[e.key] = true));
+window.addEventListener('keydown', (e) => {
+        if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' '].includes(e.key)) {
+            e.preventDefault(); // PREVENTS ARROW KEYS FROM MOVING WINDOW
+        }
+        keys[e.key] = true;
+    });
             window.addEventListener('keyup', (e) => (keys[e.key] = false));
             window.addEventListener('resize', onWindowResize, false);
 
@@ -679,11 +685,17 @@
             camera.lookAt(car.position);
         }
 
-        function onWindowResize() {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        }
+function onWindowResize() {
+    const container = document.getElementById('game-container');
+    if (!container) return;
+    
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(width, height);
+}
 
         function animate() {
             animationFrameId = requestAnimationFrame(animate);

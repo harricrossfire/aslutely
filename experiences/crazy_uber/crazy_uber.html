@@ -19,77 +19,80 @@
         </div>
     </header>
     <main>
-        <div id="info">Use Arrow Keys to drive, Spacebar for Nitro</div>
-            <div id="score-board">Score: 0</div>
-            <div id="timer-display">Time: 0.00</div>
-            <div id="star-guide">★★★★★</div>
-            <div id="nitro-display">Nitro: 0</div>
-            <div id="health-container" class="ui-bar-container">
-                <div id="health-bar" class="ui-bar"></div>
-                <div class="ui-text">HEALTH</div>
-            </div>
-            <div id="fuel-container" class="ui-bar-container">
-                <div id="fuel-bar" class="ui-bar"></div>
-                <div class="ui-text">FUEL</div>
-            </div>
-            <button id="earn-fuel-btn">Earn Fuel</button>
-
-            <div id="start-modal" class="modal">
-                <h2>Welcome to Crazy Uber!</h2>
-                <input type="text" id="player-name" placeholder="Enter your name">
-                <p>Choose your car color:</p>
-                <div id="color-selector">
-                    <div class="color-swatch selected" style="background-color: #ff0000;" data-color="0xff0000"></div>
-                    <div class="color-swatch" style="background-color: #0000ff;" data-color="0x0000ff"></div>
-                    <div class="color-swatch" style="background-color: #00ff00;" data-color="0x00ff00"></div>
-                    <div class="color-swatch" style="background-color: #ffff00;" data-color="0xffff00"></div>
-                    <div class="color-swatch" style="background-color: #ffffff;" data-color="0xffffff"></div>
+        <div id="game-container">
+            <div id="info">Use Arrow Keys to drive, Spacebar for Nitro</div>
+                <div id="score-board">Score: 0</div>
+                <div id="timer-display">Time: 0.00</div>
+                <div id="star-guide">★★★★★</div>
+                <div id="nitro-display">Nitro: 0</div>
+                <div id="health-container" class="ui-bar-container">
+                    <div id="health-bar" class="ui-bar"></div>
+                    <div class="ui-text">HEALTH</div>
                 </div>
-                <p>Choose your quiz category:</p>
-                <div id="quiz-category-selector">
-                    <select id="quiz-category-select" style="width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ddd; background: #333; color: white; font-size: 16px;">
-                        <option value="Fingerspelling">Fingerspelling (A-Z)</option>
-                        <option value="Numbers 1-20">Numbers 1-20</option>
-                        <option value="Colors">Colors</option>
-                        <option value="Family">Family</option>
-                        <option value="School and Deaf Culture">School and Deaf Culture</option>
-                        <option value="Feelings">Feelings</option>
-                        <option value="Foods and Drinks">Foods and Drinks</option>
-                        <option value="Classes">Classes</option>
-                        <option value="Sports">Sports</option>
-                        <option value="Weather">Weather</option>
-                        <option value="Days of the Week">Days of the Week</option>
-                        <option value="Conversational Words">Conversational Words</option>
-                        <option value="Time">Time</option>
-                        <option value="Classifiers">Classifiers</option>
-                        <option value="Money">Money</option>
-                        <option value="House">House</option>
-                    </select>
+                <div id="fuel-container" class="ui-bar-container">
+                    <div id="fuel-bar" class="ui-bar"></div>
+                    <div class="ui-text">FUEL</div>
                 </div>
-                <button id="start-game-btn" class="game-button">Start Game</button>
-            </div>
+                <button id="earn-fuel-btn">Earn Fuel</button>
 
-            <div id="quiz-modal" class="modal">
-                <span id="close-quiz-btn">&times;</span>
-                <div id="fuel-notification"></div>
-                <h2 id="question">What letter is this?</h2>
-                <img id="quiz-gif" src="" alt="Sign Language GIF">
-                <div id="answers-container"></div>
-            </div>
+                <div id="start-modal" class="modal">
+                    <h2>Welcome to Crazy Uber!</h2>
+                    <input type="text" id="player-name" placeholder="Enter your name">
+                    <p>Choose your car color:</p>
+                    <div id="color-selector">
+                        <div class="color-swatch selected" style="background-color: #ff0000;" data-color="0xff0000"></div>
+                        <div class="color-swatch" style="background-color: #0000ff;" data-color="0x0000ff"></div>
+                        <div class="color-swatch" style="background-color: #00ff00;" data-color="0x00ff00"></div>
+                        <div class="color-swatch" style="background-color: #ffff00;" data-color="0xffff00"></div>
+                        <div class="color-swatch" style="background-color: #ffffff;" data-color="0xffffff"></div>
+                    </div>
+                    <p>Choose your quiz category:</p>
+                    <div id="quiz-category-selector">
+                        <select id="quiz-category-select" style="width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ddd; background: #333; color: white; font-size: 16px;">
+                            <option value="Fingerspelling">Fingerspelling (A-Z)</option>
+                            <option value="Numbers 1-20">Numbers 1-20</option>
+                            <option value="Colors">Colors</option>
+                            <option value="Family">Family</option>
+                            <option value="School and Deaf Culture">School and Deaf Culture</option>
+                            <option value="Feelings">Feelings</option>
+                            <option value="Foods and Drinks">Foods and Drinks</option>
+                            <option value="Classes">Classes</option>
+                            <option value="Sports">Sports</option>
+                            <option value="Weather">Weather</option>
+                            <option value="Days of the Week">Days of the Week</option>
+                            <option value="Conversational Words">Conversational Words</option>
+                            <option value="Time">Time</option>
+                            <option value="Classifiers">Classifiers</option>
+                            <option value="Money">Money</option>
+                            <option value="House">House</option>
+                        </select>
+                    </div>
+                    <button id="start-game-btn" class="game-button">Start Game</button>
+                </div>
 
-            <div id="game-over-modal" class="modal">
-                <h2 id="game-over-title">Game Over!</h2>
-                <p>Your final score is: <strong id="final-score">0</strong></p>
-                <div class="stars" id="star-rating"></div>
-                <button id="restart-game-btn" class="game-button">Restart Game</button>
-            </div>
+                <div id="quiz-modal" class="modal">
+                    <span id="close-quiz-btn">&times;</span>
+                    <div id="fuel-notification"></div>
+                    <h2 id="question">What letter is this?</h2>
+                    <img id="quiz-gif" src="" alt="Sign Language GIF">
+                    <div id="answers-container"></div>
+                </div>
 
-            <div id="touch-controls">
-                <div id="touch-up" class="touch-btn">▲</div>
-                <div id="touch-down" class="touch-btn">▼</div>
-                <div id="touch-left" class="touch-btn">◀</div>
-                <div id="touch-right" class="touch-btn">▶</div>
+                <div id="game-over-modal" class="modal">
+                    <h2 id="game-over-title">Game Over!</h2>
+                    <p>Your final score is: <strong id="final-score">0</strong></p>
+                    <div class="stars" id="star-rating"></div>
+                    <button id="restart-game-btn" class="game-button">Restart Game</button>
+                </div>
+
+                <div id="touch-controls">
+                    <div id="touch-up" class="touch-btn">▲</div>
+                    <div id="touch-down" class="touch-btn">▼</div>
+                    <div id="touch-left" class="touch-btn">◀</div>
+                    <div id="touch-right" class="touch-btn">▶</div>
+                </div>
             </div>
+        </div>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="crazy_uber.js"></script>
