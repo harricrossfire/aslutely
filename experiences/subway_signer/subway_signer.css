@@ -1,14 +1,18 @@
 #game-container {
-    position: relative; /* This traps all absolute children inside this div */
-    width: 95%;
-    max-width: 1200px; /* Max width for large monitors */
-    height: calc(100vh - 120px); /* Take up screen space minus the header */
-    min-height: 500px;
-    margin: 90px auto 50px auto; /* Push down past the 70px fixed nav bar */
-    border-radius: 12px;
-    overflow: hidden; /* Keeps the canvas strictly inside the rounded corners */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    background-color: #000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* This is the magic centering trick */
+    margin-top: 35px; /* Adjusts centering to account for the 70px nav bar */
+    border: 4px solid #60a5fa; 
+    border-radius: 8px;
+    box-shadow: 0 0 20px #60a5fa;
+    background: #0c1425; 
+    width: min(800px, calc(100vw - 24px));
+    height: min(600px, calc(100dvh - 94px)); /* 100dvh minus margins and nav */
+    max-width: calc(100vw - 24px);
+    max-height: calc(100dvh - 94px);
+    overflow: hidden;
 }
 canvas {
     display: block;
@@ -60,19 +64,19 @@ canvas {
             object-fit: contain;
         }
 
-@media (max-width: 900px) {
-    #target-container {
-        top: auto;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 180px;
-        height: 180px;
-    }
-    #info-container {
-        top: 20px;
-        left: 20px;
-        right: auto;
+@media (max-width: 480px) {
+    #game-container {
+        width: 100vw;
+        max-width: 100vw;
+        height: calc(100dvh - 70px); /* Take up all space below the nav */
+        max-height: none;
+        top: 70px; /* Lock it exactly below the global nav */
+        left: 0;
+        transform: none; /* Remove the desktop centering */
+        margin-top: 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
     }
 }
         #target-label {
