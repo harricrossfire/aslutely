@@ -21,28 +21,28 @@
             <a href="../../lexicon.html" class="label" style="text-decoration: none;">Vocabulary</a>
         </div>
     </header>
-    <div id="loading-container">
-        <div id="loading-bar">
-            <div id="loading-progress"></div>
+    <main>
+        <div id="game-container">
+            <div id="loading-container">
+                <div id="loading-bar">
+                    <div id="loading-progress"></div>
+                </div>
+            </div>
+
+            <div id="target-container">
+                <div id="target-label">TARGET</div>
+                <video id="target-image" autoplay loop muted playsinline></video>
+            </div>
+            <div id="info-container">
+                <div id="score">Score: 0</div>
+            </div>
+            <div id="game-over-container">
+                <div id="game-over">GAME OVER</div>
+                <button id="restart-button">Restart</button>
+            </div>
         </div>
-    </div>
-
-    <div id="target-container">
-        <div id="target-label">TARGET</div>
-        <video id="target-image" autoplay loop muted playsinline></video>
-    </div>
-    <div id="info-container">
-        <div id="score">Score: 0</div>
-    </div>
-    <div id="game-over-container">
-        <div id="game-over">GAME OVER</div>
-        <button id="restart-button">Restart</button>
-    </div>
-
+    </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="subway_signer.js"></script>
-
- 
-    </script>
 </body>
 </html>

@@ -1,45 +1,56 @@
+#game-container {
+    position: relative; /* This traps all absolute children inside this div */
+    width: 95%;
+    max-width: 1200px; /* Max width for large monitors */
+    height: calc(100vh - 120px); /* Take up screen space minus the header */
+    min-height: 500px;
+    margin: 90px auto 50px auto; /* Push down past the 70px fixed nav bar */
+    border-radius: 12px;
+    overflow: hidden; /* Keeps the canvas strictly inside the rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    background-color: #000;
+}
 canvas {
-            display: block;
-            margin: 70px;
-            position: absolute;
-            width: 90dvw;
-            height: 90dvh;
-            z-index: 1;
-        }
-        #info-container {
-            position: absolute;
-            top: 70px;
-            right: 10px;
-            text-align: center;
-            z-index: 100;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 8px 14px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
+    display: block;
+    width: 100% !important; /* Let CSS handle layout, Three.js handles resolution */
+    height: 100% !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}        
+#info-container {
+    position: absolute;
+    top: 20px; 
+    right: 20px;
+    text-align: center;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 8px 14px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
         #score {
             font-size: clamp(1.4rem, 2.2vw, 2.2rem);
             font-weight: bold;
         }
-        #target-container {
-            position: absolute;
-            top: 70px;
-            left: 10px;
-            transform: none;
-            background-color: transparent;
-            padding: 6px;
-            border-radius: 10px;
-            text-align: center;
-            width: min(38vw, 340px);
-            height: min(38vw, 340px);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            opacity: 1;
-            border: 1px solid rgba(255,255,255,0.15);
-            z-index: 90;
-        }
+#target-container {
+    position: absolute;
+    top: 20px; 
+    left: 20px;
+    background-color: transparent;
+    padding: 6px;
+    border-radius: 10px;
+    text-align: center;
+    width: min(30vw, 240px); /* Slightly scaled down so it doesn't crowd the window */
+    height: min(30vw, 240px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.15);
+    z-index: 90;
+}
         #target-label { display: none; }
         #target-image {
             width: 100%;
@@ -49,26 +60,21 @@ canvas {
             object-fit: contain;
         }
 
-        @media (max-width: 900px) {
-            #target-container {
-                top: auto;
-                bottom: 12px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: min(70vw, 220px);
-                height: min(70vw, 220px);
-            }
-            #info-container {
-                top: 10%;
-                left: 10%;
-                right: auto;
-                bottom: auto;
-                background-color: rgba(0,0,0,0.7);
-            }
-            #score { font-size: 1em; }
-            #restart-button { font-size: 1rem; padding: 20% 20%; }
-            #game-over { font-size: 2em; }
-        }
+@media (max-width: 900px) {
+    #target-container {
+        top: auto;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 180px;
+        height: 180px;
+    }
+    #info-container {
+        top: 20px;
+        left: 20px;
+        right: auto;
+    }
+}
         #target-label {
             font-size: 1.2em;
             color: #ccc;

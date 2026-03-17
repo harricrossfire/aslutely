@@ -21,27 +21,37 @@
         const targetVideoElement = document.getElementById('target-image');
 
         // --- INITIALIZATION ---
-        function init() {
-            scene = new THREE.Scene();
-            scene.background = new THREE.Color(0x33334d);
-            scene.fog = new THREE.Fog(0x33334d, 50, 150);
-            clock = new THREE.Clock();
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.set(0, 6, 12);
-            camera.lookAt(0, 3, 0);
-            renderer = new THREE.WebGLRenderer({ antialias: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.shadowMap.enabled = true;
-            document.body.appendChild(renderer.domElement);
-            setupLighting();
-            createPlayer();
-            createGround();
-            createWalls();
-            setNewTarget();
-            setupEventListeners();
-            spawnWall();
-            animate();
-        }
+function init() {
+    scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x33334d);
+    scene.fog = new THREE.Fog(0x33334d, 50, 150);
+    clock = new THREE.Clock();
+    
+    // Get the new container dimensions
+    const gameContainer = document.getElementById('game-container');
+    const width = gameContainer.clientWidth;
+    const height = gameContainer.clientHeight;
+
+    camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+    camera.position.set(0, 6, 12);
+    camera.lookAt(0, 3, 0);
+    
+    renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(width, height);
+    renderer.shadowMap.enabled = true;
+    
+    // CRITICAL FIX: Append to the container, not document.body
+    gameContainer.appendChild(renderer.domElement); 
+    
+    setupLighting();
+    createPlayer();
+    createGround();
+    createWalls();
+    setNewTarget();
+    setupEventListeners();
+    spawnWall();
+    animate();
+}
 
         function setupLighting() {
             const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
@@ -320,17 +330,26 @@ plane.material.transparent = false;
         }
 
         // --- EVENT HANDLERS ---
-        function onWindowResize() {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        }
+function onWindowResize() {
+    const gameContainer = document.getElementById('game-container');
+    const width = gameContainer.clientWidth;
+    const height = gameContainer.clientHeight;
 
-        function onKeyDown(event) {
-            if (isGameOver) return;
-            if (event.key === 'ArrowLeft' && currentLane > 0) currentLane--;
-            else if (event.key === 'ArrowRight' && currentLane < lanes.length - 1) currentLane++;
-        }
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(width, height);
+}
+function onKeyDown(event) {
+    // Prevent default scrolling for game controls
+    if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', ' '].includes(event.key)) {
+        event.preventDefault();
+    }
+    
+    if (isGameOver) return;
+    
+    if (event.key === 'ArrowLeft' && currentLane > 0) currentLane--;
+    else if (event.key === 'ArrowRight' && currentLane < lanes.length - 1) currentLane++;
+}
 
         // --- ANIMATION LOOP ---
         function animatePlayer() {
