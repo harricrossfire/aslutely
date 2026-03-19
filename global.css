@@ -1,16 +1,3 @@
-/* ASL ACADEMY - GLOBAL STYLE SHEET
-   Use these classes for a consistent, filter-safe academic look.
-*/
-
-:root {
-    --bg-main: #0f172a;
-    --bg-card: #1e293b;
-    --text-primary: #f1f5f9;
-    --text-secondary: #94a3b8;
-    --accent: #10b981; /* Emerald */
-    --border: #334155;
-}
-
 body {
     background-color: var(--bg-main);
     color: var(--text-primary);
