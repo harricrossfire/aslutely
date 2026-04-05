@@ -4,25 +4,15 @@
     left: 50%;
     transform: translate(-50%, -50%); /* This is the magic centering trick */
     margin-top: 35px; /* Adjusts centering to account for the 70px nav bar */
-    border: 4px solid #60a5fa; 
+    border: 4px solid black; 
     border-radius: 8px;
-    box-shadow: 0 0 20px #60a5fa;
     background: #0c1425; 
-    width: min(800px, calc(100vw - 24px));
-    height: min(600px, calc(100dvh - 94px)); /* 100dvh minus margins and nav */
+    width: 75vw;
+    height: 75vh;
     max-width: calc(100vw - 24px);
     max-height: calc(100dvh - 94px);
     overflow: hidden;
 }
-canvas {
-    display: block;
-    width: 100% !important; /* Let CSS handle layout, Three.js handles resolution */
-    height: 100% !important;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}        
 #info-container {
     position: absolute;
     top: 20px; 
@@ -34,15 +24,15 @@ canvas {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
-        #score {
-            font-size: clamp(1.4rem, 2.2vw, 2.2rem);
-            font-weight: bold;
-        }
+#score {
+    font-size: clamp(1.4rem, 2.2vw, 2.2rem);
+    font-weight: bold;
+    color: white;
+}
 #target-container {
     position: absolute;
     top: 20px; 
     left: 20px;
-    background-color: transparent;
     padding: 6px;
     border-radius: 10px;
     text-align: center;
@@ -52,7 +42,6 @@ canvas {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(255,255,255,0.15);
     z-index: 90;
 }
         #target-label { display: none; }
@@ -79,73 +68,75 @@ canvas {
         border-right: none;
     }
 }
-        #target-label {
-            font-size: 1.2em;
-            color: #ccc;
-            margin-bottom: 5px;
-        }
-        #target-image {
-            width: 400px;
-            height: 400px;
-            background-color: #fff;
-            border-radius: 5px;
-            object-fit: contain;
-        }
-        #game-over-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 200;
-            display: none; /* Hidden by default */
-            text-align: center;
-        }
-        #game-over {
-            font-size: 3em;
-            font-weight: bold;
-            color: #ff4141;
-            text-shadow: 0 0 10px #ff0000;
-        }
-        #restart-button {
-            margin-top: 20px;
-            padding: 12px 25px;
-            font-size: 1.2em;
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            transition: background-color 0.3s, transform 0.2s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-        #restart-button:hover {
-            background-color: #45a049;
-            transform: scale(1.05);
-        }
-        /* loading screen styles */
-        #loading-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 300;
-        }
-        #loading-bar {
-            width: 60%;
-            max-width: 400px;
-            height: 25px;
-            background-color: #444;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-        #loading-progress {
-            width: 0%;
-            height: 100%;
-            background-color: #4CAF50;
-            transition: width 0.2s;
-        }
+#target-label {
+    font-size: 1.2em;
+    color: #ccc;
+    margin-bottom: 5px;
+}
+#target-image {
+    width: 400px;
+    height: 400px;
+    background-color: #fff;
+    border-radius: 5px;
+    object-fit: contain;
+}
+#game-over-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 200;
+    display: none; /* Hidden by default */
+    text-align: center;
+}
+#game-over {
+    font-size: 3em;
+    font-weight: bold;
+    color: #ff4141;
+    text-shadow: 0 0 10px #ff0000;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+}
+#restart-button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+#restart-button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+/* loading screen styles */
+#loading-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 300;
+}
+#loading-bar {
+    width: 60%;
+    max-width: 400px;
+    height: 25px;
+    background-color: #444;
+    border-radius: 12px;
+    overflow: hidden;
+}
+#loading-progress {
+    width: 0%;
+    height: 100%;
+    background-color: #4CAF50;
+    transition: width 0.2s;
+}
